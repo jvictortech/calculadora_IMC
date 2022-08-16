@@ -9,52 +9,78 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var calc = calculo();
+  var calculo = Validador();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cálcule Seu IMC"),
+        title: Text('Calcular IMC'),
       ),
-      body: ListView(children: <Widget>[
-        Padding(
-          padding: EdgeInsets.all(20),
-          child: TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Informe sua altura (cm)',
+      body: ListView(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: TextFormField(
+              controller: calculo.heightCtrl,
+              decoration: InputDecoration(
+                labelText: 'Insira sua altura (cm)',
+              ),
+              keyboardType: TextInputType.number,
             ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(20),
-          child: TextFormField(
-            decoration: InputDecoration(
-              labelText: 'Informe seu peso(kg)',
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: TextFormField(
+              controller: calculo.weightCtrl,
+              decoration: InputDecoration(
+                labelText: 'insira seu peso (kg)',
+              ),
+              keyboardType: TextInputType.number,
             ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(20),
-          child: Text(
-            'Aqui é para sair o resultado',
-            textAlign: TextAlign.center,
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Text(
+              calculo.result,
+              textAlign: TextAlign.center,
+            ),
           ),
-        ),
-        TextButton(
-          style: TextButton.styleFrom(
-            padding: const EdgeInsets.all(20),
-            primary: Colors.red,
-            textStyle: const TextStyle(fontSize: 20),
-          ),
-          onPressed: () {
-            setState(() {
-              calculo();
-            });
-          },
-          child: const Text('Calcular'),
-        )
-      ]),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Stack(
+              children: <Widget>[
+                Positioned.fill(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color(0xFF0D47A1),
+                          Color(0XFF1976D2),
+                          Color(0XFF42A5F5),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(16),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      calculo.calcularImc();
+                    });
+                  },
+                  child: const Text('CALCULAR'),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

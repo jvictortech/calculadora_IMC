@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'IMC',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
       home: HomePage(),
     );

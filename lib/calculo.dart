@@ -1,37 +1,46 @@
-void calculo() {
-  double peso = 70.5;
-  double altura = 1.76;
+import 'package:flutter/material.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
 
-  double imc = (peso / (altura * altura));
+class Validador {
+  var heightCtrl = MaskedTextController(mask: '000');
+  var weightCtrl = MaskedTextController(mask: '000');
+  var result = 'Preencha seus dados para calcular o IMC';
 
-  String imcfinal = imc.toStringAsFixed(2);
+  calcularImc() {
 
-  if (imc < 18.5) {
-    print(
+    double weight = double.parse(weightCtrl.text);
+    double height = double.parse(heightCtrl.text) / 100;
+    double imc = (weight / (height * height));
+    String imcfinal = imc.toStringAsFixed(2);
+
+
+   if (imc < 18.5) {
+    result = (
         'Seu imc é $imcfinal , isso significa que você está abaixo do peso, procure ajuda profissional');
   }
 
-  if (imc >= 18.5 && imc <= 24.9) {
-    print('Seu imc é $imcfinal ,isso significa que você está com o peso ideal');
+    else if (imc >= 18.5 && imc <= 24.9) {
+    result = ('Seu imc é $imcfinal ,isso significa que você está com o peso ideal');
   }
 
-  if (imc >= 25 && imc <= 29.9) {
-    print(
+    else if (imc >= 25 && imc <= 29.9) {
+    result = (
         'Seu imc é $imcfinal ,isso significa que você está com sobrepeso, procure ajuda profissional');
   }
 
-  if (imc >= 30 && imc <= 34.9) {
-    print(
+    else if (imc >= 30 && imc <= 34.9) {
+    result = (
         'Seu imc é $imcfinal ,isso significa que você está com obsidade grau I, procure ajuda profissional');
   }
 
-  if (imc >= 35 && imc <= 40) {
-    print(
+    else if (imc >= 35 && imc <= 40) {
+    result = (
         'Seu imc é $imcfinal ,isso significa que você está com obsidade grau II, procure ajuda profissional');
   }
 
-  if (imc >= 40) {
-    print(
+    else if (imc >= 40) {
+    result = (
         'Seu imc é $imcfinal ,isso significa que você está com obsidade grau III, procure ajuda profissional');
+};
   }
-  }
+}
