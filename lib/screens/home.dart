@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Calcular IMC'),
       ),
-      body: ListView(
+      body: Column(
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(20),
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
             child: TextFormField(
               controller: calculo.weightCtrl,
               decoration: InputDecoration(
-                labelText: 'insira seu peso (kg)',
+                labelText: 'Insira seu peso (kg)',
               ),
               keyboardType: TextInputType.number,
             ),
@@ -53,19 +53,21 @@ class _HomePageState extends State<HomePage> {
                 Positioned.fill(
                   child: Container(
                     decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: <Color>[
-                          Color(0xFF0D47A1),
-                          Color(0XFF1976D2),
-                          Color(0XFF42A5F5),
-                        ],
-                      ),
-                    ),
+                        gradient: LinearGradient(
+                          colors: <Color>[
+                            Color(0xFF0D47A1),
+                            Color(0XFF1976D2),
+                            Color(0XFF42A5F5),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
                   ),
                 ),
                 TextButton(
                   style: TextButton.styleFrom(
-                    foregroundColor: Colors.white, padding: const EdgeInsets.all(16),
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.all(16),
+                    fixedSize: Size(200, 90),
                     textStyle: const TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
