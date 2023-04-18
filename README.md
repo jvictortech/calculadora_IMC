@@ -1,3 +1,17 @@
-# imc2
+# app_calculadora-IMC
 
-// Estou aprendendo ainda.. não julgue..kkkkkkk 
+Programa desenvolvido no Framework Flutter
+
+Acesse o projeto em: (https://github.com/jvictortech/calculadora_IMC)
+
+# O que o programa faz: 
+
+Esse programa foi desenvolvido para consultas de Indíce de Massa Corparal
+
+# Tecnologias utilizadas
+- [Dart](https://dart.dev/)
+- [Flutter](https://flutter.dev/)
+
+# Interface
+
+![Video Interface]
